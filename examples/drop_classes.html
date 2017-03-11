@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Quickdroppable Example</title>
+  <style>
+    .blue {
+      background-color: blue;
+      position: relative;
+    }
+    .white {
+      color: white;
+    }
+    .red {
+      background-color: red;
+    }
+    .droppable {
+      background-color: grey;
+      height: 300px;
+      width: 300px;
+    }
+    .draggable {
+      width: 30px;
+      height: 30px;
+      padding: 30px;
+    }
+  </style>
+ 
+  <script src="../vendor/jquery.2.2.4.min.js"></script>
+
+  <script src="../quickdroppable.js"></script>
+  
+  <script>
+  (function(){
+  $(document).ready(function(){
+    $('#draggable').quickdroppable('draggable', {targetAssure: '#draggable', dragRemoveClass: 'white', dragAddClass: 'blue'});
+    $('.droppable').quickdroppable('droppable');
+  });
+  })(jQuery);
+
+
+  </script>
+</head>
+<body>
+  <h2>Drag the red square into either of the grey droppable zones.</h2> 
+  <div id="draggable" class="white draggable red">
+    <p>drag</p>
+  </div>
+  <div class="droppable" class="white droppable">
+  </div>
+  <div class="droppable" class="white droppable">
+    <div id="first-child" style="background-color:green; height:30px; width:30px" ></div>
+  </div>
+</body>
+</html>

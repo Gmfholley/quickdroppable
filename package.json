@@ -1,0 +1,32 @@
+{
+  "name": "quickdroppable",
+  "version": "1.0.0",
+  "description": "HTML5 drag & drop jQuery plugin with touch support",
+  "main": "quickdroppable.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gmfholley/quickdroppable.git"
+  },
+  "dependencies" : {
+    "jquery" : "^1.9.0 || ^2.0.0"
+  },
+  "keywords": [
+    "jQuery",
+    "drag",
+    "&",
+    "drop",
+    "HTML5",
+    "touch",
+    "events",
+    "mobile"
+  ],
+  "author": "Gwendolyn Holley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gmfholley/quickdroppable/issues"
+  },
+  "homepage": "https://github.com/Gmfholley/quickdroppable#readme"
+}
