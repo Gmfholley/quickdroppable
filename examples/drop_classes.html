@@ -33,8 +33,8 @@
   <script>
   (function(){
   $(document).ready(function(){
-    $('#draggable').quickdroppable('draggable', {targetAssure: '#draggable', dragRemoveClass: 'white', dragAddClass: 'blue'});
-    $('.droppable').quickdroppable('droppable');
+    $('#draggable').quickdroppable('draggable', {dragAssure: '#draggable', dragRemoveClass: 'white red', dragAddClass: 'blue'});
+    $('.droppable').quickdroppable('droppable', {dragRemoveClass: 'blue', dragAddClass: 'white red'});
   });
   })(jQuery);
 
@@ -43,6 +43,7 @@
 </head>
 <body>
   <h2>Drag the red square into either of the grey droppable zones.</h2> 
+  <h4>When you start the drag event, it will </h4>
   <div id="draggable" class="white draggable red">
     <p>drag</p>
   </div>

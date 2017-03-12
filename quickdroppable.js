@@ -6,7 +6,8 @@
 * allows html5 draga nd drop interface with touch support
 *				type = 'draggable' or 'droppable'
 *				options = {
-					targetAssure: selector for target - might be parent of what was clicked,
+					dragAssure: selector for drag target - might be parent of what was clicked,
+					dropAssure: selector for drop target - might be parent of where dropped,
 					dropCondition: selector for drop condition,
 					insertBefore: selector for insert of dragged into drop,
 					dragRemoveClass: class to add to drag/target element,

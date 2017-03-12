@@ -26,7 +26,8 @@ Quickdroppable accepts the following parameters:
 ```text
 type = 'draggable' or 'droppable'
 options = {
-	targetAssure: selector for target - might be parent of what was clicked,
+	dragAssure: selector for drag target - might be parent of what was clicked,
+	dropAssure: selector for drop target - might be parent of where it was dropped,
 	dropCondition: selector for drop condition,
 	insertBefore: selector for insert of dragged into drop,
 	dragRemoveClass: class to add to drag/target element,
@@ -53,9 +54,9 @@ If you do not have any special options but you do have a callback, you must pass
 ```
 
 ##Options for `draggable` elements
-`targetAssure`, `dragRemoveClass`, and `dragAddClass` are meant as options for `draggable` elements.
+`dragAssure`, `dragRemoveClass`, and `dragAddClass` are meant as options for `draggable` elements.
 
- - `targetAssure` is the selector for the `draggable` item.  It ensures that when a user clicks on a child of of a `draggable` element, the `dragStart` event still fires.  Quickdroppable will look through 20 layers of children to try to find a matching selector to `targetAssure`.
+ - `dragAssure` is the selector for the `draggable` item.  It ensures that when a user clicks on a child of of a `draggable` element, the `dragStart` event still fires.  Quickdroppable will look through 20 layers of children to try to find a matching selector to `dragAssure`.
 
  ```html
 <div id="draggable">
