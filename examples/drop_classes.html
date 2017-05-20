@@ -18,11 +18,17 @@
       background-color: grey;
       height: 300px;
       width: 300px;
+      margin: 5px;
     }
     .draggable {
       width: 30px;
       height: 30px;
       padding: 30px;
+    }
+    #first-child {
+      height:30px; 
+      width:30px
+      background-color: green; 
     }
   </style>
  
@@ -37,27 +43,18 @@
     $('.droppable').quickdroppable('droppable', {dragRemoveClass: 'blue', dragAddClass: 'white red'});
   });
   })(jQuery);
-
-
   </script>
 </head>
 <body>
   <h2>Drag the red square into either of the grey droppable zones.</h2> 
-  <h4>When you start the drag event, it will </h4>
+  <h4>When you start the drag event, it will add a class.  When the drag event stops, it will remove it.</h4>
   <div id="draggable" class="white draggable red" onclick="myFunction(event)">
     drag
   </div>
   <div class="droppable" class="white droppable">
   </div>
   <div class="droppable" class="white droppable">
-    <div id="first-child" style="background-color:green; height:30px; width:30px" ></div>
+    <div id="first-child"></div>
   </div>
-  <script>
-  function myFunction (e){
-
-    e.preventDefault();
-    alert('hi');
-  }
-  </script>
 </body>
 </html>
