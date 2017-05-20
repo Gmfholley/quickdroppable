@@ -44,13 +44,20 @@
 <body>
   <h2>Drag the red square into either of the grey droppable zones.</h2> 
   <h4>When you start the drag event, it will </h4>
-  <div id="draggable" class="white draggable red">
-    <p>drag</p>
+  <div id="draggable" class="white draggable red" onclick="myFunction(event)">
+    drag
   </div>
   <div class="droppable" class="white droppable">
   </div>
   <div class="droppable" class="white droppable">
     <div id="first-child" style="background-color:green; height:30px; width:30px" ></div>
   </div>
+  <script>
+  function myFunction (e){
+
+    e.preventDefault();
+    alert('hi');
+  }
+  </script>
 </body>
 </html>

@@ -205,6 +205,8 @@
 					.on('touchmove', handleTouch)
 					.on('touchend', handleTouch)
 					.on('touchcancel', handleTouch);
+
+				this.attr('draggable', true);
 			}
 		}
 
