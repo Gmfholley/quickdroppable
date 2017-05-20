@@ -163,6 +163,8 @@
 
 					// check if draggable is already a child of droppable
 					if (!$.contains(dropTarget[0], dragged[0])) {
+
+						// if there are options, insert it before them
 						if (dropOptions.insertBefore) {
 							dragged.insertBefore(dropOptions.insertBefore)
 						} else {
@@ -171,7 +173,8 @@
 							} else {
 								dropTarget.append(dragged);
 							}
-						}						
+						}
+
 					}
 
 					dropTarget.addClass(dropOptions.dropAddClass)
