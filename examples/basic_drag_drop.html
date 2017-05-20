@@ -3,8 +3,27 @@
 <head>
   <meta charset="utf-8">
   <title>Quickdroppable Example</title>
- 
-  <script src="../vendor/jquery.2.2.4.min.js"></script>
+  <style>
+    .droppable {
+      background-color: grey;
+      height: 300px;
+      width: 300px;
+      margin-top: 5px;
+    }
+    #draggable {
+      background-color: red;
+      color: white;
+      width: 30px;
+      height: 30px;
+      padding: 30px;
+    }
+    #first-child {
+      background-color: green; 
+      height:30px; 
+      width:30px;
+    }
+  </style>
+  <script src="../vendor/jquery-3.2.1.min.js"></script>
 
   <script src="../quickdroppable.js"></script>
   
@@ -21,12 +40,13 @@
 </head>
 <body>
   <h2>Drag the red square into either of the grey droppable zones.</h2> 
-  <div id="draggable" style="background-color:red;height:30px; width:30px;padding:30px;">
+  <div id="draggable">
+    drag
   </div>
-  <div class="droppable" style="background-color:grey;height:300px;width:300px;margin:5px;">
+  <div class="droppable">
   </div>
-  <div class="droppable" style="background-color:grey;height:300px;width:300px;margin: 5px;">
-    <div id="first-child" style="background-color:green; height:30px; width:30px" ></div>
+  <div class="droppable">
+    <div id="first-child"></div>
   </div>
 </body>
 </html>

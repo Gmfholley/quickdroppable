@@ -18,21 +18,21 @@
       background-color: grey;
       height: 300px;
       width: 300px;
-      margin: 5px;
+      margin-top: 5px;
     }
-    .draggable {
+    #draggable {
       width: 30px;
       height: 30px;
       padding: 30px;
     }
     #first-child {
-      height:30px; 
-      width:30px
       background-color: green; 
+      height:30px; 
+      width:30px;
     }
   </style>
  
-  <script src="../vendor/jquery.2.2.4.min.js"></script>
+  <script src="../vendor/jquery-3.2.1.min.js"></script>
 
   <script src="../quickdroppable.js"></script>
   
@@ -48,12 +48,12 @@
 <body>
   <h2>Drag the red square into either of the grey droppable zones.</h2> 
   <h4>When you start the drag event, it will add a class.  When the drag event stops, it will remove it.</h4>
-  <div id="draggable" class="white draggable red">
+  <div id="draggable" class="white red">
     drag
   </div>
-  <div class="droppable" class="white droppable">
+  <div class="white droppable">
   </div>
-  <div class="droppable" class="white droppable">
+  <div class="white droppable">
     <div id="first-child"></div>
   </div>
 </body>
