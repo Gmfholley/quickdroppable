@@ -145,33 +145,33 @@
 
 			var dropEvent = function(event){
 				event.preventDefault();
-			  	event.stopPropagation();
+			  event.stopPropagation();
 
 
-			  	var dropTarget = soughtTarget($(event.target), dropOptions.dropAssure);
-			  	
-			  	var data = getDragId();
+		  	var dropTarget = soughtTarget($(event.target), dropOptions.dropAssure);
+		  	
+		  	var data = getDragId();
 
 
 				var dragged = $('#' + data);
 
-				
-
-				if (typeof callback === 'function') {
-					callback(event, dropTarget, dragged, dropOptions);
-				}
-				//priority  = table headers
-				//only allow to drop if empty
 				if (!dropOptions.dropCondition || dropTarget.is(dropOptions.dropCondition)){
 					
-					if (dropOptions.insertBefore) {
-						dragged.insertBefore(dropOptions.insertBefore)
-					} else {
-						if (dropTarget.children().length > 0) {
-							dragged.insertBefore(dropTarget.children());						
+					if (typeof callback === 'function') {
+						callback(event, dropTarget, dragged, dropOptions);
+					}
+
+					// check if draggable is already a child of droppable
+					if (!$.contains(dropTarget[0], dragged[0])) {
+						if (dropOptions.insertBefore) {
+							dragged.insertBefore(dropOptions.insertBefore)
 						} else {
-							dropTarget.append(dragged);
-						}
+							if (dropTarget.children().length > 0) {
+								dragged.insertBefore(dropTarget.children());						
+							} else {
+								dropTarget.append(dragged);
+							}
+						}						
 					}
 
 					dropTarget.addClass(dropOptions.dropAddClass)
