@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Quickdroppable Example</title>
+  <style>
+    .droppable, .droppable-assuretarget {
+      background-color: grey;
+      height: 300px;
+      width: 300px;
+      margin-top: 5px;
+    }
+    #draggable, #draggable-assure {
+      display: inline-block;
+      background-color: red;
+      width: 120px;
+      height: 120px;
+      margin: 5px;
+      text-align: center;
+    }
+    #draggable-child, #draggable-child-assure {
+      display: inline-block;
+      background-color: purple;
+      color: white;
+      width: 60px;
+      height: 60px;
+      padding: 20px;
+    }
+    .first-child {
+      background-color: green; 
+      height: 100px; 
+      width: 100px;
+      padding: 30px;
+    }
+    #content {
+      border: black inset 1px;
+    }
+  </style>
+  <script src="../vendor/jquery-3.2.1.min.js"></script>
+
+  <script src="../quickdroppable.js"></script>
+  
+  <script>
+  (function(){
+  $(document).ready(function(){
+    $('#draggable').quickdroppable('draggable');
+    $('#draggable-assure').quickdroppable('draggable', {dragAssure: '#draggable-assure'});
+    $('.droppable').quickdroppable('droppable');
+  });
+  })(jQuery);
+  </script>
+</head>
+<body>
+  <h2>Drag red squares into either of the grey droppable zones.</h2> 
+  <h4>The first red square's purple child can be dragged without its parent.  If you drag the second purple square, the event will bubble up to its parent, and they will be dragged together.</h4>
+  <p>Use the <code>dragAssure</code> option to ensure children drag with their parent.</p>
+  <div id="draggable">
+    <p id="draggable-child" draggable=true>I drag once by myself</p>
+  </div>
+  <div id="draggable-assure">
+    <p id="draggable-child-assure" draggable=true>I drag my parent</p>
+  </div>
+  <div class="droppable"></div>
+  <div class="droppable"></div>
+  <pre id="content">
+    <code>
+    &lt;div id="draggable"&gt;<br />
+      &lt;p id="draggable-child" draggable=true&gt;I drag once by myself&lt;/p&gt;<br />
+    &lt;/div&gt;<br />
+    &lt;div id="draggable-assure"&gt;<br />
+      &lt;p id="draggable-child-assure" draggable=true&gt;I drag my parent&lt;/p&gt;<br />
+    &lt;/div&gt;<br />
+    &lt;div class="droppable"&gt;&lt;/div&gt;<br />
+    &lt;div class="droppable"&gt;&lt;/div&gt;<br />
+    <br />
+    &lt;script&gt;<br />
+      (function(){<br />
+        $(document).ready(function(){<br />
+          $('#draggable').quickdroppable('draggable');<br />
+          $('#draggable-assure').quickdroppable('draggable', {dragAssure: '#draggable-assure'});<br />
+          $('.droppable').quickdroppable('droppable');<br />
+        });<br />
+      })(jQuery);<br />
+    &lt;/script&gt;
+    </code>
+  </pre>
+</body>
+</html>
