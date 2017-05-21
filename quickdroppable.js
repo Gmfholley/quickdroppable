@@ -80,7 +80,7 @@
 			// assign a unique if the element doesn't already have one
 			var assureId = function(jElement) {
 				while (! jElement.attr('id')) {
-					var tryId = Math.random().toString(36);
+					var tryId = Math.random().toString(36).slice(2);
 					if (! document.getElementById(tryId)){
 						jElement.attr('id', tryId);
 					}
