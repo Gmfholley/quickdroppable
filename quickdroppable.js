@@ -166,7 +166,7 @@
 
 						// if there are options, insert it before them
 						if (dropOptions.insertBefore) {
-							dragged.insertBefore(dropOptions.insertBefore)
+							dragged.insertBefore(dropTarget.children(dropOptions.insertBefore));
 						} else {
 							if (dropTarget.children().length > 0) {
 								dragged.insertBefore(dropTarget.children().first());						
