@@ -1,0 +1,99 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Quickdroppable Example</title>
+  <style>
+    .droppable, .droppable-assuretarget {
+      background-color: grey;
+      height: 300px;
+      width: 300px;
+      margin-top: 5px;
+    }
+    .draggable{
+      display: inline-block;
+      background-color: red;
+      width: 120px;
+      height: 120px;
+      margin: 5px;
+      text-align: center;
+    }
+    .half-screen {
+      float: left;
+      width: 50%;
+    }
+    .color {
+      background-color: purple;
+    }
+    #console {
+      background-color: #eeeeee;
+      color: green;
+      height: 1050px;
+      overflow-x: scroll;
+    }
+    #content {
+      border: black inset 1px;
+      overflow-y: scroll;
+    }
+  </style>
+  <script src="../vendor/jquery-3.2.1.min.js"></script>
+
+  <script src="../quickdroppable.js"></script>
+  
+  <script>
+  (function(){
+  $(document).ready(function(){
+    $('.draggable').quickdroppable('draggable', {},
+        function(event, dropTarget, dragged, dropOptions) {
+          $('#console').append('<p>I am a successful drag event.</p>');
+        }
+      );
+    $('.droppable').quickdroppable('droppable', {dropRemoveClass: 'empty color', dropCondition: '.empty'},
+      function(event, dropTarget, dragged, dropOptions) {
+        if (dragged.parent().is('.droppable')) {
+          dragged.parent().addClass('empty color');
+        }
+        $('#console').append('<p>I am a successful drop event.</p>');
+      }
+    );
+  });
+  })(jQuery);
+  </script>
+</head>
+<body>
+  <h2>Drag a red square into one of the grey dropzones.</h2> 
+  <h4>A custom callback has been written that changes the previous dropzone to purple and adds a sentence to the console.</h4>
+  <p>Use the <code>callback</code> option to create your own custom callbacks.  Your code will run only if <code>dropAssure</code>, <code>dragAssure</code>, and <code>dropCondition</code>s are met.</p>
+  <div class="half-screen">
+    <div class="draggable"></div>
+    <div class="draggable"></div>
+    <div class="droppable empty"></div>
+    <div class="droppable empty"></div>
+    <div class="droppable empty"></div>
+  </div>
+  <div class="half-screen">
+    <div id="console">
+      <h4>Output</h4>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+  <pre id="content">
+    <code>
+    &lt;div class="draggable"&gt;&lt;/div&gt;<br />
+    &lt;div class="draggable"&gt;&lt;/div&gt;<br />
+    &lt;div class="droppable empty"&gt;&lt;/div&gt;<br />
+    &lt;div class="droppable empty"&gt;&lt;/div&gt;<br />
+    &lt;div class="droppable empty"&gt;&lt;/div&gt;<br />
+    &lt;script&gt;<br />
+      (function(){<br />
+        $(document).ready(function(){<br />
+          $('.draggable').quickdroppable('draggable', {dragAddClass:'empty'});<br />
+          $('.droppable').quickdroppable('droppable', {dropRemoveClass: 'empty', dropCondition: '.empty'});<br />
+        });<br />
+      })(jQuery);<br />
+    &lt;/script&gt;
+    </code>
+  </pre>
+</body>
+</html>
