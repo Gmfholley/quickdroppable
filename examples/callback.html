@@ -80,19 +80,37 @@
   <div style="clear:both;"></div>
   <pre id="content">
     <code>
+  &lt;div class="half-screen"&gt;<br />
     &lt;div class="draggable"&gt;&lt;/div&gt;<br />
     &lt;div class="draggable"&gt;&lt;/div&gt;<br />
     &lt;div class="droppable empty"&gt;&lt;/div&gt;<br />
     &lt;div class="droppable empty"&gt;&lt;/div&gt;<br />
     &lt;div class="droppable empty"&gt;&lt;/div&gt;<br />
-    &lt;script&gt;<br />
-      (function(){<br />
-        $(document).ready(function(){<br />
-          $('.draggable').quickdroppable('draggable', {dragAddClass:'empty'});<br />
-          $('.droppable').quickdroppable('droppable', {dropRemoveClass: 'empty', dropCondition: '.empty'});<br />
-        });<br />
-      })(jQuery);<br />
-    &lt;/script&gt;
+  &lt;/div&gt;<br />
+  &lt;div class="half-screen"&gt;<br />
+    &lt;div id="console"&gt;<br />
+      &lt;h4&gt;Output&lt;/h4&gt;<br />
+    &lt;/div&gt;<br />
+  &lt;/div&gt;<br />
+  &lt;script&gt;<br />
+    (function(){<br />
+      $(document).ready(function(){<br />
+        $('.draggable').quickdroppable('draggable', {},<br />
+            function(event, dropTarget, dragged, dropOptions) {<br />
+              $('#console').append('&lt;p&gt;I am a successful drag event.&lt;/p&gt;');<br />
+            }<br />
+          );<br />
+        $('.droppable').quickdroppable('droppable', {dropRemoveClass: 'empty color', dropCondition: '.empty'},<br />
+          function(event, dropTarget, dragged, dropOptions) {<br />
+            if (dragged.parent().is('.droppable')) {<br />
+              dragged.parent().addClass('empty color');<br />
+            }<br />
+            $('#console').append('&lt;p&gt;I am a successful drop event.&lt;/p&gt;');<br />
+          }<br />
+        );<br />
+      });<br />
+    })(jQuery);<br />
+  &lt;/script&gt;
     </code>
   </pre>
 </body>
