@@ -169,7 +169,7 @@
 							dragged.insertBefore(dropOptions.insertBefore)
 						} else {
 							if (dropTarget.children().length > 0) {
-								dragged.insertBefore(dropTarget.children());						
+								dragged.insertBefore(dropTarget.children().first());						
 							} else {
 								dropTarget.append(dragged);
 							}
