@@ -22,6 +22,9 @@
       height:30px; 
       width:30px;
     }
+    #content {
+      border: black inset 1px;
+    }
   </style>
   <script src="../vendor/jquery-3.2.1.min.js"></script>
 
@@ -48,5 +51,24 @@
   <div class="droppable">
     <div id="first-child"></div>
   </div>
+
+  <pre id="content">
+    <code>
+      &lt;div id="draggable"&gt;drag&lt;/div&gt;<br />
+      &lt;div class="droppable"&gt;&lt;/div&gt;<br />
+      &lt;div class="droppable"&gt;<br />
+        &lt;div id="first-child"&gt;&lt;/div&gt;<br />
+      &lt;/div&gt;<br />
+      <br />
+      &lt;script&gt;<br />
+        (function(){<br />
+          $(document).ready(function(){<br />
+            $('#draggable').quickdroppable('draggable');<br />
+            $('.droppable').quickdroppable('droppable');<br />
+          });<br />
+        })(jQuery);<br />
+      &lt;/script&gt;
+    </code>
+  </pre>
 </body>
 </html>

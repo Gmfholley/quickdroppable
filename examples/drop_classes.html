@@ -8,7 +8,7 @@
       background-color: blue;
       position: relative;
     }
-    .white {
+    .text-white {
       color: white;
     }
     .red {
@@ -18,7 +18,7 @@
       background-color: grey;
       height: 300px;
       width: 300px;
-      margin-top: 5px 0px 5px 0px;
+      margin-top: 5px;
     }
     #draggable {
       width: 30px;
@@ -30,6 +30,9 @@
       height:30px; 
       width:30px;
     }
+    #content {
+      border: black inset 1px;
+    }
   </style>
  
   <script src="../vendor/jquery-3.2.1.min.js"></script>
@@ -39,8 +42,8 @@
   <script>
   (function(){
   $(document).ready(function(){
-    $('#draggable').quickdroppable('draggable', {dragAssure: '#draggable', dragRemoveClass: 'white red', dragAddClass: 'blue'});
-    $('.droppable').quickdroppable('droppable', {dragRemoveClass: 'blue', dragAddClass: 'white red'});
+    $('#draggable').quickdroppable('draggable', {dragRemoveClass: 'text-white red', dragAddClass: 'blue'});
+    $('.droppable').quickdroppable('droppable', {dragRemoveClass: 'blue', dragAddClass: 'text-white red'});
   });
   })(jQuery);
   </script>
@@ -48,13 +51,32 @@
 <body>
   <h2>Drag the red square into either of the grey droppable zones.</h2> 
   <h4>When you start the drag event, it will add a class.  When the drag event stops, it will remove it.</h4>
-  <div id="draggable" class="white red">
+  <p>Use the <code>dragRemoveClass</code> and <code>dragAddClass</code> options to add/remove classes on a drag event.  Use the <code>dropRemoveClass</code> and <code>dropAddClass</code> to add/remove classes on a drop event.</p>
+  <div id="draggable" class="text-white red">
     drag
   </div>
-  <div class="white droppable">
+  <div class="droppable">
   </div>
-  <div class="white droppable">
+  <div class="droppable">
     <div id="first-child"></div>
   </div>
+  <pre id="content">
+    <code>
+    &lt;div id="draggable"&gt;drag&lt;/div&gt;<br />
+    &lt;div class="droppable"&gt;&lt;/div&gt;<br />
+    &lt;div class="droppable"&gt;<br />
+      &lt;div id="first-child"&gt;&lt;/div&gt;<br />
+    &lt;/div&gt;<br />
+    <br />
+    &lt;script&gt;<br />
+      (function(){<br />
+        $(document).ready(function(){<br />
+          $('#draggable').quickdroppable('draggable', {dragRemoveClass: 'text-white red', dragAddClass: 'blue'});<br />
+          $('.droppable').quickdroppable('droppable', {dragRemoveClass: 'blue', dragAddClass: 'text-white red'});<br />
+        });<br />
+      })(jQuery);<br />
+    &lt;/script&gt;
+    </code>
+  </pre>
 </body>
 </html>

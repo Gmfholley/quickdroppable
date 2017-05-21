@@ -23,6 +23,9 @@
       width: 100px;
       padding: 30px;
     }
+    #content {
+      border: black inset 1px;
+    }
   </style>
   <script src="../vendor/jquery-3.2.1.min.js"></script>
 
@@ -40,20 +43,41 @@
 </head>
 <body>
   <h2>Drag the red square into either of the grey droppable zones.</h2> 
-  <h4>The first square is not assured.  You can drop into its child. The second square is assured and you can not drop into its children.  </h4>
+  <h4>The first square is not assured.  You can drop into its child. The second square is assured and you can not drop into its children.</h4>
+  <p>Use the <code>dropAssure</code> option to make sure you can't drop into a child of a droppable zone.</p>
   <div id="draggable">
     drag
   </div>
   <div class="droppable">
     I'm not assured.  You can drop into my child.
-    <div class="first-child">
-      I am a child
-    </div>  </div>
+    <div class="first-child">I am a child</div>  
+  </div>
   <div class="droppable-assuretarget">
     I'm assured.  If you drop into my child, it will bubble up to me.
-    <div class="first-child">
-      I am a child
-    </div>
+    <div class="first-child">I am a child</div>
   </div>
+  <pre id="content">
+    <code>
+    &lt;div id="draggable"&gt;drag&lt;/div&gt;<br />
+    &lt;div class="droppable"&gt;<br />
+      I'm not assured.  You can drop into my child.<br />
+      &lt;div class="first-child"&gt;I am a child&lt;/div&gt;  <br />
+    &lt;/div&gt;<br />
+    &lt;div class="droppable-assuretarget"&gt;<br />
+      I'm assured.  If you drop into my child, it will bubble up to me.<br />
+      &lt;div class="first-child"&gt;I am a child&lt;/div&gt;<br />
+    &lt;/div&gt;<br />
+    <br />
+    &lt;script&gt;<br />
+      (function(){<br />
+        $(document).ready(function(){<br />
+          $('#draggable').quickdroppable('draggable');<br />
+          $('.droppable').quickdroppable('droppable');<br />
+          $('.droppable-assuretarget').quickdroppable('droppable', {dropAssure: '.droppable-assuretarget'});<br />
+        });<br />
+      })(jQuery);<br />
+    &lt;/script&gt;
+    </code>
+  </pre>
 </body>
 </html>
