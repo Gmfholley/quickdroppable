@@ -3,7 +3,7 @@
 /* *****************************
 * MIT license
 * developer: Wendy Holley (gmfholley)
-* allows html5 draga nd drop interface with touch support
+* allows html5 drag and drop interface with touch support
 *				type = 'draggable' or 'droppable'
 *				options = {
 					dragAssure: selector for drag target - might be parent of what was clicked,
@@ -47,9 +47,9 @@
 
 				var simulatedMouse = document.createEvent("MouseEvent");
 				//event.initMouseEvent(type, canBubble, cancelable, view,
-    //                  detail (clicks), screenX, screenY, clientX, clientY,
-    //                  ctrlKey, altKey, shiftKey, metaKey,
-    //                  button (0: Main button pressed), relatedTarget);
+    		//                  detail (clicks), screenX, screenY, clientX, clientY,
+    		//                  ctrlKey, altKey, shiftKey, metaKey,
+    		//                  button (0: Main button pressed), relatedTarget);
 				simulatedMouse.initMouseEvent(type, true, true, window, 
 					1, touch.screenX, touch.screenY, touch.clientX, touch.clientY,
 					false, false, false, false, 0, null);

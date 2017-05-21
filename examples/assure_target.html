@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Quickdroppable Example</title>
   <style>
-    .droppable {
+    .droppable, .droppable-assuretarget {
       background-color: grey;
       height: 300px;
       width: 300px;
@@ -17,10 +17,11 @@
       height: 30px;
       padding: 30px;
     }
-    #first-child {
+    .first-child {
       background-color: green; 
-      height:30px; 
-      width:30px;
+      height: 100px; 
+      width: 100px;
+      padding: 30px;
     }
   </style>
   <script src="../vendor/jquery-3.2.1.min.js"></script>
@@ -32,23 +33,27 @@
   $(document).ready(function(){
     $('#draggable').quickdroppable('draggable');
     $('.droppable').quickdroppable('droppable');
+    $('.droppable-assuretarget').quickdroppable('droppable', {dropAssure: '.droppable-assuretarget'});
   });
   })(jQuery);
-
-
   </script>
 </head>
 <body>
   <h2>Drag the red square into either of the grey droppable zones.</h2> 
+  <h4>The first square is not assured.  You can drop into its child. The second square is assured and you can not drop into its children.  </h4>
   <div id="draggable">
     drag
   </div>
   <div class="droppable">
-  </div>
-  <div class="droppable">
-    <div id="first-child"></div>
-  </div>
-  <div class="not-assured">
+    I'm not assured.  You can drop into my child.
+    <div class="first-child">
+      I am a child
+    </div>  </div>
+  <div class="droppable-assuretarget">
+    I'm assured.  If you drop into my child, it will bubble up to me.
+    <div class="first-child">
+      I am a child
+    </div>
   </div>
 </body>
 </html>
