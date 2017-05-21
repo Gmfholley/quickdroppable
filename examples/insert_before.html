@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Quickdroppable Example</title>
+  <style>
+    .droppable {
+      background-color: grey;
+      height: 300px;
+      width: 300px;
+      margin-top: 5px;
+    }
+    .draggable {
+      display: inline-block;
+      background-color: red;
+      color: white;
+      width: 30px;
+      height: 30px;
+      padding: 30px;
+    }
+    .first-child {
+      display: inline-block;
+      background-color: green; 
+      height: 20px; 
+      width: 20px;
+      padding: 30px;
+    }
+    .second-child {
+      display: inline-block;
+      background-color: purple;
+      height: 20px; 
+      width: 20px;
+      padding: 30px;
+    }
+    #content {
+      border: black inset 1px;
+      overflow-y: scroll;
+    }
+  </style>
+  <script src="../vendor/jquery-3.2.1.min.js"></script>
+
+  <script src="../quickdroppable.js"></script>
+  
+  <script>
+  (function(){
+  $(document).ready(function(){
+    $('.draggable').quickdroppable('draggable');
+    $('.droppable').quickdroppable('droppable', {dropAssure: '.droppable', insertBefore: '.second-child'});
+  });
+  })(jQuery);
+  </script>
+</head>
+<body>
+  <h2>Drag the red squares into either of the grey droppable zones.</h2> 
+  <h4>The red square will be inserted between Thing 1 and Thing 2.</h4>
+  <p>Use the <code>insertBefore</code> option to specify where you should drop among a droppable zone's children.</p>
+  <div class="draggable"></div>
+  <div class="draggable"></div>
+  <div class="droppable">
+    <div class="first-child">Thing 1</div>
+    <div class="second-child">Thing 2</div>
+  </div>
+  <div class="droppable">
+    <div class="first-child">Thing 1</div>
+    <div class="second-child">Thing 2</div>
+  </div>
+  <pre id="content">
+    <code>
+  &lt;div class="draggable"&gt;&lt;/div&gt;<br />
+  &lt;div class="draggable"&gt;&lt;/div&gt;<br />
+  &lt;div class="droppable"&gt;<br />
+    &lt;div class="first-child"&gt;Thing 1&lt;/div&gt;<br />
+    &lt;div class="second-child"&gt;Thing 2&lt;/div&gt;<br />
+  &lt;/div&gt;<br />
+  &lt;div class="droppable"&gt;<br />
+    &lt;div class="first-child"&gt;Thing 1&lt;/div&gt;<br />
+    &lt;div class="second-child"&gt;Thing 2&lt;/div&gt;<br />
+  &lt;/div&gt;<br />
+  &lt;script&gt;<br />
+    (function(){<br />
+      $(document).ready(function(){<br />
+        $('.draggable').quickdroppable('draggable');<br />
+        $('.droppable').quickdroppable('droppable', {dropAssure: '.droppable', insertBefore: '.second-child'});<br />
+      });<br />
+    })(jQuery);<br />
+  &lt;/script&gt;
+    </code>
+  </pre>
+</body>
+</html>
